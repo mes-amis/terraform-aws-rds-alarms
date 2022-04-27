@@ -119,7 +119,7 @@ variable "disk_free_storage_space_too_low_threshold" {
 
 variable "disk_burst_balance_too_low_threshold" {
   type        = string
-  default     = "100"
+  default     = "35"
   description = "Alarm threshold for the 'lowEBSBurstBalance' alarm"
 }
 
