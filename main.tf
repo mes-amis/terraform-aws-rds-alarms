@@ -4,6 +4,7 @@ resource "aws_cloudwatch_metric_alarm" "cpu_utilization_too_high" {
   alarm_name          = "${var.prefix}rds-${var.db_instance_id}-highCPUUtilization"
   comparison_operator = "GreaterThanThreshold"
   evaluation_periods  = var.evaluation_period
+  datapoints_to_alarm = var.datapoints_to_alarm
   metric_name         = "CPUUtilization"
   namespace           = "AWS/RDS"
   period              = var.statistic_period
@@ -24,6 +25,7 @@ resource "aws_cloudwatch_metric_alarm" "cpu_credit_balance_too_low" {
   alarm_name          = "${var.prefix}rds-${var.db_instance_id}-lowCPUCreditBalance"
   comparison_operator = "LessThanThreshold"
   evaluation_periods  = var.evaluation_period
+  datapoints_to_alarm = var.datapoints_to_alarm
   metric_name         = "CPUCreditBalance"
   namespace           = "AWS/RDS"
   period              = var.statistic_period
@@ -45,6 +47,7 @@ resource "aws_cloudwatch_metric_alarm" "disk_queue_depth_too_high" {
   alarm_name          = "${var.prefix}rds-${var.db_instance_id}-highDiskQueueDepth"
   comparison_operator = "GreaterThanThreshold"
   evaluation_periods  = var.evaluation_period
+  datapoints_to_alarm = var.datapoints_to_alarm
   metric_name         = "DiskQueueDepth"
   namespace           = "AWS/RDS"
   period              = var.statistic_period
@@ -65,6 +68,7 @@ resource "aws_cloudwatch_metric_alarm" "disk_free_storage_space_too_low" {
   alarm_name          = "${var.prefix}rds-${var.db_instance_id}-lowFreeStorageSpace"
   comparison_operator = "LessThanThreshold"
   evaluation_periods  = var.evaluation_period
+  datapoints_to_alarm = var.datapoints_to_alarm
   metric_name         = "FreeStorageSpace"
   namespace           = "AWS/RDS"
   period              = var.statistic_period
@@ -85,6 +89,7 @@ resource "aws_cloudwatch_metric_alarm" "disk_burst_balance_too_low" {
   alarm_name          = "${var.prefix}rds-${var.db_instance_id}-lowEBSBurstBalance"
   comparison_operator = "LessThanThreshold"
   evaluation_periods  = var.evaluation_period
+  datapoints_to_alarm = var.datapoints_to_alarm
   metric_name         = "BurstBalance"
   namespace           = "AWS/RDS"
   period              = var.statistic_period
@@ -106,6 +111,7 @@ resource "aws_cloudwatch_metric_alarm" "memory_freeable_too_low" {
   alarm_name          = "${var.prefix}rds-${var.db_instance_id}-lowFreeableMemory"
   comparison_operator = "LessThanThreshold"
   evaluation_periods  = var.evaluation_period
+  datapoints_to_alarm = var.datapoints_to_alarm
   metric_name         = "FreeableMemory"
   namespace           = "AWS/RDS"
   period              = var.statistic_period
@@ -147,6 +153,7 @@ resource "aws_cloudwatch_metric_alarm" "connection_count_anomalous" {
   alarm_name          = "${var.prefix}rds-${var.db_instance_id}-anomalousConnectionCount"
   comparison_operator = "GreaterThanUpperThreshold"
   evaluation_periods  = var.evaluation_period
+  datapoints_to_alarm = var.datapoints_to_alarm
   threshold_metric_id = "e1"
   alarm_description   = "Anomalous database connection count detected. Something unusual is happening."
   alarm_actions       = var.actions_alarm
@@ -184,6 +191,7 @@ resource "aws_cloudwatch_metric_alarm" "maximum_used_transaction_ids_too_high" {
   alarm_name          = "${var.prefix}rds-${var.db_instance_id}-maximumUsedTransactionIDs"
   comparison_operator = "GreaterThanThreshold"
   evaluation_periods  = var.evaluation_period
+  datapoints_to_alarm = var.datapoints_to_alarm
   metric_name         = "MaximumUsedTransactionIDs"
   namespace           = "AWS/RDS"
   period              = var.statistic_period
